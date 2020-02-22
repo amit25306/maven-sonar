@@ -8,7 +8,7 @@ pipeline {
 			}
 			stage ('maven sonar'){
 				steps{
-					withSonarQubeEnv(credentialsId: 'sonar') {
+					withSonarQubeEnv('sonar') {
 						withMaven(jdk: 'Default_JDK', maven: 'Default Maven') {
 							sh 'clean mvn install sonar:sonar'
 						}
